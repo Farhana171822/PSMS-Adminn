@@ -6,9 +6,9 @@
 <div class="page-header">
   <h3 class="page-title">
     <span class="page-title-icon bg-gradient-primary text-white mr-2">
-      <i class="mdi mdi-account-multiple"></i>                 
+      <i class="mdi mdi-book-open-page-variant "></i>                 
     </span>
-    All Teacher
+    All Subject
   </h3>
 </div>
 
@@ -24,9 +24,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Mobile</th>
-                                    <th>Gender</th>
+                                    <th>Code</th>
+                                    <th>Type</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,23 +33,23 @@
 
                                 <!-- datavase a deya teacher er info gulo ei table a show kre -->
                                 <?php
-                                    $stm = $pdo->prepare("SELECT * FROM teachers ORDER BY id DESC");
+                                    $stm = $pdo->prepare("SELECT * FROM subject ORDER BY id DESC");
                                     $stm->execute();
-                                    $teacherList = $stm->fetchAll(PDO::FETCH_ASSOC);
+                                    $subList = $stm->fetchAll(PDO::FETCH_ASSOC);
                                     $i=1;
-                                    foreach($teacherList as $teacher):
+                                    foreach($subList as $sub):
 
                                 ?>
 
                                 <tr>
                                     <td><?php echo $i; $i++;?></td>
-                                    <td><?php echo $teacher['name']?></td>
-                                    <td><?php echo $teacher['email']?></td>
-                                    <td><?php echo $teacher['mobile']?></td>
-                                    <td><?php echo $teacher['gender']?></td>
+                                    <td><?php echo $sub['name']?></td>
+                                    <td><?php echo $sub['code']?></td>
+                                    <td><?php echo $sub['type']?></td>
                                     <td>
-                                    <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit "></i></a>&nbsp;
-                                    <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>                                    </td>
+                                        <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit "></i></a>&nbsp;
+                                        <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </td>
                                 </tr>
                                 
                                 <?php endforeach;?>

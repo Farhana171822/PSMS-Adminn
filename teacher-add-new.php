@@ -12,8 +12,8 @@
         $t_password = $_POST['t_password'];
 
         // count row of teacher
-        $emailCount = teacherCount('email',$t_email);
-        $mobileCount = teacherCount('mobile',$t_mobile);//column name "mobile",,,value is "$t_mobile"
+        $emailCount = getCount('teachers','email',$t_email);
+        $mobileCount = getCount('teachers','mobile',$t_mobile);//column name "mobile",,,value is "$t_mobile"
 
         if(empty($t_name)){
             $error = "Name is required!";

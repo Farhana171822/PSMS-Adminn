@@ -23,9 +23,26 @@ catch(PDOException $m){
 // }
 
 //Count any Column Value from teachers Table
-function teacherCount($col,$val){
+// function teacherCount($col,$val){
+//     global $pdo;
+//     $stm=$pdo->prepare("SELECT $col FROM teachers WHERE $col=?");
+//     $stm->execute(array($val));
+//     $count = $stm->rowCount();
+//     return $count;
+// }
+
+//Count any Column Value from subject Table
+// function subjectCount($col,$val){
+//     global $pdo;
+//     $stm=$pdo->prepare("SELECT $col FROM subject WHERE $col=?");
+//     $stm->execute(array($val));
+//     $count = $stm->rowCount();
+//     return $count;
+// }
+// ei vabe table er data count krle bar bar alada count function create krte hbe nah
+function getCount($tbl,$col,$val){
     global $pdo;
-    $stm=$pdo->prepare("SELECT $col FROM teachers WHERE $col=?");
+    $stm=$pdo->prepare("SELECT $col FROM $tbl WHERE $col=?");
     $stm->execute(array($val));
     $count = $stm->rowCount();
     return $count;

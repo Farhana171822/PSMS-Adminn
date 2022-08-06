@@ -196,7 +196,7 @@ if(!isset($_SESSION['admin_loggedin'])){
             </a>
             <div class="collapse" id="ui-4">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">All Subjects</a></li>
+                <li class="nav-item"> <a class="nav-link" href="subject-all.php">All Subjects</a></li>
                 <li class="nav-item"> <a class="nav-link" href="subject-add-new.php">Add New Subjects</a></li>
               </ul>
             </div>

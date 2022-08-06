@@ -4,42 +4,32 @@
     $admin_id = $_SESSION['admin_loggedin'][0]['id'];
 
     if(isset($_POST['change_btn'])){
-        $t_name = $_POST['t_name'];
-        $t_email = $_POST['t_email'];
-        $t_mobile = $_POST['t_mobile'];
-        $t_address = $_POST['t_address'];
-        $t_gender = $_POST['t_gender'];
-        $t_password = $_POST['t_password'];
+        $sub_name = $_POST['sub_name'];
+        $sub_code = $_POST['sub_code'];
+        $sub_type = $_POST['sub_type'];
 
         // count row of teacher
-        $emailCount = teacherCount('email',$t_email);
-        $mobileCount = teacherCount('mobile',$t_mobile);//column name "mobile",,,value is "$t_mobile"
+        $codeCount = getCount('subject','code',$sub_code);
 
-        if(empty($t_name)){
-            $error = "Name is required!";
+        if(empty($sub_name)){
+            $error = "Subject Name is required!";
         }
-        else if(empty($t_email)){
+        else if(empty($sub_code)){
             $error = "Email is required!";
         }
-        else if(empty($t_mobile)){
+        else if(empty($sub_type)){
             $error = "Mobile is required!";
         }
-        else if(empty($t_password)){
-            $error = "Password is required!";
-        }
-        else if($emailCount != 0){
-            $error = "Used Email!";
-        }
-        else if($mobileCount != 0){
-            $error = "Used Mobile Number!";
+        else if($codeCount != 0){
+            $error = " Already Used Subject Code!";
         }
         else{
-            $password = SHA1($t_password);
-            $created_at = date('Y-m-d H:i:s');
+            // $password = SHA1($t_password);
+            // $created_at = date('Y-m-d H:i:s');
 
-            $insert = $pdo->prepare("INSERT INTO teachers(name,email,mobile,address,gender,password,created_at) VALUES(?,?,?,?,?,?,?)");
-            $insert->execute(array($t_name,$t_email,$t_mobile,$t_address,$t_gender,$password,$created_at));
-            $success = "Teacher Account Create Success!";
+            $insert = $pdo->prepare("INSERT INTO subject(name,code,type) VALUES(?,?,?)");
+            $insert->execute(array($sub_name,$sub_code,$sub_type));
+            $success = "Added Subject Done!";
         }
         
     }
@@ -49,7 +39,7 @@
 <div class="page-header">
   <h3 class="page-title">
     <span class="page-title-icon bg-gradient-primary text-white mr-2">
-      <i class="mdi mdi-account-outline"></i>                 
+      <i class="mdi mdi-book-open-variant "></i>                 
     </span>
     Add New Subject
   </h3>
@@ -73,35 +63,21 @@
             
         <form class="forms-sample" method="POST" action="">
             <div class="form-group">
-                <label for="t_name">Teacher Name</label>
-                <input type="text" name="t_name" class="form-control" id="t_name" placeholder="Teacher Name">
+                <label for="sub_name">Subject Name</label>
+                <input type="text" name="sub_name" class="form-control" id="sub_name" placeholder="Subject Name">
             </div>
             
             
             <div class="form-group">
-                <label for="t_email">Teacher Email</label>
-                <input type="text" name="t_email" class="form-control" id="t_email" placeholder="Teacher Email">
-            </div>
-
-            <div class="form-group">
-                <label for="t_mobile">Teacher Mobile</label>
-                <input type="text" name="t_mobile" class="form-control" id="t_mobile" placeholder="Teacher Mobile">
+                <label for="sub_code">Subject Code</label>
+                <input type="text" name="sub_code" class="form-control" id="sub_code" placeholder="Subject Code">
             </div>
             <div class="form-group">
-                <label for="t_address">Address</label>
-                <input type="address" name="t_address" class="form-control" id="t_address" placeholder="Teacher Mobile">
+                <label>Subject Type</label>&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="sub_type" value="Theory">&nbsp;Theory</label> &nbsp;
+                <label><input type="radio" name="sub_type" value="Practical">&nbsp;Practical</label>&nbsp;
             </div>
-            <div class="form-group">
-                <label for="">Gender</label>&nbsp;&nbsp;&nbsp;
-                <label><input type="radio" name="t_gender" value="Male" id="t_male" checked>&nbsp;Male</label> &nbsp;
-                <label><input type="radio" name="t_gender" value="Female" id="t_female">&nbsp;Female</label>&nbsp;
-            </div>
-            <div class="form-group">
-                <label for="t_password">Password</label>
-                <input type="password" name="t_password" class="form-control" id="t_password">
-            </div>
-
-            <button type="submit" name="change_btn" class="btn btn-gradient-primary mr-2">Add Teacher Account</button>
+            <button type="submit" name="change_btn" class="btn btn-gradient-primary mr-2">Add Subject</button>
             </form>
           </div>
     </div>
