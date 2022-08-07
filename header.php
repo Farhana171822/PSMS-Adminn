@@ -181,8 +181,8 @@ if(!isset($_SESSION['admin_loggedin'])){
             </a>
             <div class="collapse" id="ui-5">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">All Classes</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Add New Class</a></li>
+                <li class="nav-item"> <a class="nav-link" href="class-all.php">All Classes</a></li>
+                <li class="nav-item"> <a class="nav-link" href="class-add-new.php">Add New Class</a></li>
               </ul>
             </div>
           </li>
@@ -229,6 +229,7 @@ if(!isset($_SESSION['admin_loggedin'])){
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="teacher-all.php">All Teacher</a></li>
                 <li class="nav-item"> <a class="nav-link" href="teacher-add-new.php">Add New</a></li>
+                <li class="nav-item"> <a class="nav-link" href="teacher-assign-subject.php">Assign Subject</a></li>
               </ul>
             </div>
           </li>
