@@ -48,13 +48,21 @@ function getCount($tbl,$col,$val){
     return $count;
 }
 
+function getSubjectName($id){
+    global $pdo;
+    $stm=$pdo->prepare("SELECT name,code FROM subject WHERE id=?");
+    $stm->execute(array($id));
+    $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+    return $result[0]['name']."-".$result[0]['code'];
+}
+
 // //  GET Student Data
-// function Student($col,$id){
-//     global $pdo;
-//     $stm=$pdo->prepare("SELECT $col FROM students WHERE id=?");
-//     $stm->execute(array($id));
-//     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-//     return $result[0][$col];
-// }
+function Student($col,$id){
+    global $pdo;
+    $stm=$pdo->prepare("SELECT $col FROM students WHERE id=?");
+    $stm->execute(array($id));
+    $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+    return $result[0][$col];
+}
 
 
