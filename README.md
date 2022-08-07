@@ -1,2 +1,2 @@
-# PSMS-Admiin
- PSMS Admiin Dashbord
+# PSMS-Adminn
+ PSMS Adminn Dashbord
