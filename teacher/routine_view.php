@@ -7,9 +7,10 @@
 $class_id = $_GET['id'];
 $teacher_id = $_SESSION['teacher_loggedin'][0]['id'];
 
-$stm=$pdo->prepare("SELECT class_routine.class_name as class_id,class_routine.day,class_routine.subject_id,class_routine.teacher_id,class_routine.time_from,class_routine.time_to,class_routine.room_no,subjects.name as subject_name,subjects.code as subject_code,subjects.type as subject_type,class.class_name,teachers.name as teacher_name FROM class_routine 
+
+$stm=$pdo->prepare("SELECT class_routine.class_name as class_id,class_routine.day,class_routine.subject_id,class_routine.teacher_id,class_routine.time_from,class_routine.time_to,class_routine.room_no,subject.name as subject_name,subject.code as subject_code,subject.type as subject_type,class.class_name,teachers.name as teacher_name FROM class_routine 
 INNER JOIN class ON class_routine.class_name=class.id
-INNER JOIN subjects ON class_routine.subject_id=subjects.id
+INNER JOIN subject ON class_routine.subject_id=subject.id
 INNER JOIN teachers ON class_routine.teacher_id=teachers.id
 WHERE class_routine.class_name=? AND class_routine.teacher_id=?
 ");
@@ -21,8 +22,8 @@ $routine_list = $stm->fetchAll(PDO::FETCH_ASSOC);
     <span class="page-title-icon bg-gradient-primary text-white mr-2">
       <i class="mdi mdi-account-multiple"></i>                 
     </span>
-        <?php echo getColData('class_name','class',$class_id);?>'s Routine
-        </h3> 
+        <?php echo getClassName($class_id,'class_name');?> Routine
+  </h3> 
 </div>
 <div class="row">
 <div class="col-md-12 grid-margin stretch-card">

@@ -48,7 +48,7 @@
                                     <td><?php echo $i;$i++;?></td>
                                     <td><?php echo $list['teacher_name'];?></td>
                                     <td><?php echo $list['subject_name'];?></td>
-                                    <td><?php echo $list['subject_name'];?></td>
+                                    <td><?php echo $list['code'];?></td>
                                     <td>
                                     <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit "></i></a>&nbsp;
                                     <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>                                    </td>

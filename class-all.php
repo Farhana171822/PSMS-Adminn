@@ -48,7 +48,7 @@
                                     <td><?php echo date('d-m-Y',strtotime($sub['start_date']));?></td>
                                     <td><?php echo date('d-m-Y',strtotime($sub['end_date']));?></td>
                                     <td><?php
-                                    // sunbject name r code show krbe
+                                    // subject name r code show krbe
                                        $subject_list = json_decode($sub['subjects']);
                                        print_r($subject_list);
                                        foreach($subject_list as $new_subject){

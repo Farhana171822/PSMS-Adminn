@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th style="width:20px;">#</th> 
-                        <th>Subject Name</th>    
+                        <th>Subject Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +30,8 @@
                     ?>
                     <tr>
                         <td><?php echo $i;$i++;?></td>
-                        <td><?php echo getSubjectName($list['subject_id'])  ;?></td>  
+                        <td><?php echo getSubjectName($list['subject_id']);?></td>
+                        
                     </tr>
                     <?php endforeach;?>
                 </tbody>

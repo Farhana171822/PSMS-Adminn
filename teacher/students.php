@@ -58,14 +58,15 @@ $filter_student=$stm->fetchAll(PDO::FETCH_ASSOC);
                         </select>
                     </div> 
                 </div> 
-                <div class="col-md-4">
+                
+            </div>
+            <div class="row">
+            <div class="col-md-4">
                     <div class="form-group">
                         <label for="">&nbsp;</label>
                         <button type="submit" name="filter_btn" class="btn btn-gradient-primary mr-2">Filter Student</button> 
                     </div> 
-                </div>
-            </div>
-
+                </div></div> 
 
         </form>
     </div>
@@ -90,7 +91,7 @@ $filter_student=$stm->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                     <?php 
-
+                    
                     foreach($filter_student as $row):
                     ?>
                     <tr>
@@ -126,15 +127,17 @@ $filter_student=$stm->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                     <?php 
+                   $i=1;
                     $stm=$pdo->prepare("SELECT name,mobile,email,current_class,class_name,gender FROM students
                     INNER JOIN class ON students.current_class=class.id
                     ");
                     $stm->execute();
                     $result=$stm->fetchAll(PDO::FETCH_ASSOC);
                     foreach($result as $row):
+                        
                     ?>
                     <tr>
-                        <td>1</td>
+                        <td><?php echo $i;$i++;?></td>
                         <td><?php echo $row['name'];?></td>
                         <td><?php echo $row['class_name'];?></td>
                         <td><?php echo $row['mobile'];?></td>

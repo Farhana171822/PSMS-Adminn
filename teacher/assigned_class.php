@@ -33,7 +33,7 @@
                         <td><?php echo $i;$i++;?></td>
                         <td><?php echo getClassName($list['class_name'],'class_name')  ;?></td> 
                         <td>
-                            <a href="class_details.php?id=<?php echo $list['class_name'];?>" class="btn btn-sm btn-success"><i class="mdi mdi-eye"></i> View Class Details</a>
+                            <a href="routine_view.php?id=<?php echo $list['class_name'];?>" class="btn btn-sm btn-success"><i class="mdi mdi-eye"></i> View Class Details</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

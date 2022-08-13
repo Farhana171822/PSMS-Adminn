@@ -6,11 +6,6 @@ if(!isset($_SESSION['teacher_loggedin'])){
     header('location:login.php');
 }
 
-$user_id = $_SESSION['teacher_loggedin'][0]['id'];
-
-$admin_name = teacherData('name',$user_id);
-
-$profile_photo = teacherData('profile_photo', $user_id);
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +15,7 @@ $profile_photo = teacherData('profile_photo', $user_id);
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin Dashboard</title>
+  <title>Teacherd Dashboard</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../css/jquery.data_tables.min.css">
@@ -38,23 +33,23 @@ $profile_photo = teacherData('profile_photo', $user_id);
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.php"><img style="object-fit: contain;" src="../images/teacher_admin.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="index.php">
+          <b>PSMS Teacher</b>
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.php">
+          <b> &nbsp; Teacher</b>
+        </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-              <?php if($profile_photo == null){
-                echo '<img alt="" src="uploads/user.png">';
-              } else {
-                echo '<img alt="" src="'.$profile_photo.'">';
-              } ?>
+              <img src="../images/faces/face1.jpg" alt="image">
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black"><?php echo $admin_name;?></p>
+                <p class="mb-1 text-black"><?php echo $_SESSION['teacher_loggedin'][0]['name'];?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -147,23 +142,7 @@ $profile_photo = teacherData('profile_photo', $user_id);
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-              <?php if($profile_photo == null){
-                echo '<img alt="" src="uploads/user.png">';
-              } else {
-                echo '<img alt="" src="'.$profile_photo.'">';
-              } ?>
-                <span class="login-status online"></span> <!--change to offline or busy as needed-->              
-              </div>
-              <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2"><?php echo $admin_name;?></span>
-                <span class="text-secondary text-small">PSMS Teacher</span>
-              </div>
-              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-            </a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="index.php">
               <span class="menu-title">Dashboard</span>
@@ -189,8 +168,8 @@ $profile_photo = teacherData('profile_photo', $user_id);
 
 
           <li class="nav-item">
-            <a class="nav-link" href="assigned_subject.php">
-              <span class="menu-title">Assigned Subject</span>
+            <a class="nav-link" href="assigned_subjects.php">
+              <span class="menu-title">Assigned Subjects</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>

@@ -27,6 +27,7 @@ $class_details = $details[0];
         <div class="card-body">   
             <table class="table table-bordered">
                 <tr>
+                     <!-- sob column name gulo class table thke neya -->
                     <td><b>Class Name:</b></td>
                     <td><?php echo $class_details['class_name'];?></td>
                 </tr>    
@@ -35,11 +36,14 @@ $class_details = $details[0];
                     <td><b>Subjects:</b></td>
                     <td><?php 
                         // Get Subject Name and Code
-                        $subject_list = json_decode($class_details['subjects']); 
+                        $subject_list = json_decode($class_details['subjects']);
                         foreach($subject_list as $new_subject){
                             echo getSubjectName($new_subject)."<br>";
                         } 
-                        ?></td> 
+                        ?></td>
+
+                        <!-- <td><?php echo $class_details['subjects'];?></td> -->
+
                 </tr>    
 
                 <tr>
