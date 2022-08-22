@@ -36,7 +36,8 @@
   <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 
 
-  <script>
+  <!-- ei part tuku type krslm bt pore dklm nei -->
+   <script>
   $(document).ready( function () {
       $('#Table_Teacher_List').DataTable({
         "pageLength" : 6,
@@ -49,7 +50,7 @@
           ]
       });
   });
-  </script>
+  </script> 
   <!-- End custom js for this page-->
 </body>
 

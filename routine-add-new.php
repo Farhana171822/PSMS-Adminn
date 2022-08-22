@@ -5,7 +5,13 @@
 
     if(isset($_POST['change_btn'])){
         $class_name = $_POST['class_name'];
-        $subject_name = $_POST['subject_name'];
+        if(isset($_POST['subject_name'])){
+            $subject_name = $_POST['subject_name'];
+        }
+        else{
+            $subject_name="";
+        }
+
         $time_from = $_POST['time_from'];
         $time_to = $_POST['time_to'];
         $room_no = $_POST['room_no'];
@@ -26,20 +32,17 @@
         else if(empty($time_to)){
             $error = "Time to is required!";
         }
-        else if(empty($room_no)){
-            $error = "Room Number is required!";
-        }
-        // else if($codeCount != 0){
-        //     $error = " Already Used Subject Code!";
+        // else if(empty($room_no)){
+        //     $error = "Room Number is required!";
         // }
-        else{
-            // $password = SHA1($t_password);
-            // $created_at = date('Y-m-d H:i:s');
+        
+        
 
-            $insert = $pdo->prepare("INSERT INTO class_routine(class_name,subject_id,teacher_id,time_from,time_to,room_no,day) VALUES(?,?,?,?,?,?,?)");
-            $insert->execute(array($class_name,$subject_name,$teacher_id,$time_from,$time_to,$room_no,$day)); // subject name deyar pore teacher id ta pabe tai por por likha
-            $success = "Routine Creation Done!";
-        }
+        else{
+                $insert = $pdo->prepare("INSERT INTO class_routine(class_name,subject_id,teacher_id,time_from,time_to,room_no,day) VALUES(?,?,?,?,?,?,?)");
+                $insert->execute(array($class_name,$subject_name,$teacher_id,$time_from,$time_to,$room_no,$day)); // subject name deyar pore teacher id ta pabe tai por por likha
+                $success = "Routine Creation Done!";
+            }
         
     }
 
@@ -147,6 +150,4 @@
             }
         }); 
     });
-
-
 </script> 

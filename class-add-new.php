@@ -16,7 +16,7 @@
         }
         
 
-        print_r($subject);
+        //print_r($subject);
 
         // count row of teacher
         //$codeCount = getCount('subject','code',$sub_code);

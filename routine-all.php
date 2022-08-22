@@ -30,7 +30,7 @@
                             <tbody>
                                 
                                 <?php
-                                    $stm = $pdo->prepare("SELECT DISTINCT class_name FROM class_routine ORDER BY class_name ASC");
+                                    $stm = $pdo->prepare("SELECT class_name FROM class_routine ORDER BY class_name ASC");
                                     $stm->execute();
                                     $classList = $stm->fetchAll(PDO::FETCH_ASSOC);
                                     $i=1;
@@ -42,9 +42,12 @@
                                     <td><?php echo getClassName($list['class_name'],'class_name');?></td>
 
                                     <td>
-                                    <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit "></i></a>&nbsp;
-                                    <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
-                                    <a href="routine-details.php?id=<?php echo $list['class_name'];?>" class="btn btn-sm btn-success"><i class="mdi mdi-eye"></i></a>                                    </td>
+                                        <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit "></i></a>
+
+                                        <a href="delete.php?id=<?php echo $teacher['id'];?>" onclick="confirm('Are you sure?')" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
+                                        
+                                        <a href="routine-details.php<?php echo $list['class_name'];?>" class="btn btn-sm btn-success"><i class="mdi mdi-eye"></i></a>
+                                    </td>
                                 </tr>
                                 <?php endforeach;?>
                             </tbody>

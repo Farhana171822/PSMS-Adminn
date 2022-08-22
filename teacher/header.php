@@ -53,10 +53,10 @@ if(!isset($_SESSION['teacher_loggedin'])){
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="profile.php">
+              <!-- <a class="dropdown-item" href="profile.php">
                 <i class="mdi mdi-account-circle mr-2 text-success"></i>
                 Profile
-              </a>
+              </a> -->
               <a class="dropdown-item" href="change_password.php">
                 <i class="mdi mdi-lock mr-2 text-success"></i>
                 Change Password

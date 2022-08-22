@@ -50,7 +50,7 @@
                                     <td><?php
                                     // subject name r code show krbe
                                        $subject_list = json_decode($sub['subjects']);
-                                       print_r($subject_list);
+                                       //print_r($subject_list);
                                        foreach($subject_list as $new_subject){
                                         echo getSubjectName($new_subject)."<br>";
                                     } 
